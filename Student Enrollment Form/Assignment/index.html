@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap css cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Own Css file -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script async defer src="./js/script.js"></script>
+    <title>Student Enrollment</title>
+    <style>
+
+    /* Media Query for responsiveness */
+        @media (max-width:767px) {
+            .showcase-wrapper .form-wrapper .form .form-input-wrapper {
+                height: auto;
+                width: 98%;
+                padding: 1em 2.5em;
+            }
+        }
+        
+        @media (min-width:767px) {
+            .showcase-wrapper .form-wrapper .form .form-input-wrapper {
+                border-right: 2px solid #47d7ac;
+                height: auto;
+                width: 98%;
+                padding: 1em 2.5em;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <article class="body-wrapper">
+
+        <!-- Header -->
+
+        <header class="header">
+            <h3>Student Enrollment Form</h3>
+        </header>
+
+        
+        <div class="showcase-wrapper row">
+            <section class="form-wrapper col-12 col-sm-6">
+
+                <form class="form" id="enrollmentForm">
+
+                    <!--div for inputs-->
+                    <div class="form-input-wrapper">
+                        <div id="error-mssg" class="item form-group ">This is error message.</div>
+                        <!-- div for name input-->
+                        <div class="item form-group row">
+                            <label for="input-name" class="col-sm-4 col-form-label ">Name <sup style='color:red'>*</sup></label>
+                            <div class="col-sm-8">
+                                <input type="text" id="input-name" class="form-control " required>
+                            </div>
+                        </div>
+
+                        <!-- div for email input-->
+                        <div class="item form-group row">
+                            <label for="input-email" class="col-sm-4 col-form-label">Email <sup style='color:red'>*</sup></label>
+                            <div class="col-sm-8">
+                                <input type="text" id="input-email" class="form-control " required>
+                            </div>
+                        </div>
+
+                        <!-- div for websitelink input-->
+                        <div class="item form-group row">
+                            <label for="input-website" class="col-sm-4 col-form-label">Website Link</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="input-website" class="form-control ">
+                            </div>
+                        </div>
+
+                        <!-- div for imagelink input-->
+                        <div class="item form-group row">
+                            <label for="input-image" class="col-sm-4 col-form-label" required>Image Link</label>
+                            <div class="col-sm-8">
+                                <input type="text" id="input-image" class="form-control ">
+                            </div>
+                        </div>
+
+                        <!-- div for gender(radio button) -->
+                        <div class="item gender mb-3">
+                            <div class="col"><label for="input-gender" class="form-label col-3">Gender</label></div>
+                            <div id="input-gender" class="options">
+                                <div class="form-group ">
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender-male" value="Male" checked>
+                                        <label class="form-check-label" for="gender-male">
+                                          Male
+                                        </label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender-female" value="Female">
+                                        <label class="form-check-label" for="gender-female">
+                                          Female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- div for skills(checkbox)-->
+                        <div class="item skills mb-3">
+                            <div><label for="input-skills" class="form-label col-3">Skills</label></div>
+                            <div id="input-skills" class="options">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="skills" value="Java" id="java" checked>
+                                    <label class="form-check-label" for="java">
+                                      Java
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="skills" value="HTML" id="html">
+                                    <label class="form-check-label" for="html">
+                                      HTML
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="skills" value="CSS" id="css">
+                                    <label class="form-check-label" for="css">
+                                      CSS
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--div for buttons-->
+                        <div class="item ">
+                            <button type="submit" class="btn btn-primary" id="EnrollBtn">Enroll Student</button>
+                            <button type="reset" class="btn btn-danger">Clear</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </section>
+
+            <!--sections for student enrollment card showing information-->
+            <section class="enrolledStudents-wrapper col-12 col-sm-6">
+                <h3 class="enrolled-heading"> <b>Enrolled Students</b></h3>
+
+                <h4 id="noStundentsEnrolled">Oops!! Nothing to display ⚠️</h4>
+
+                <div class="studentsTable-wrapper container-fluid" id="studentsTable-wrapper">
+                    <div class="tableHeader row">
+                        <h5 class="col col-xs-8" style="border-right: 0px;">Description</h5>
+                        <h5 class="col col-xs-4">Image</h5>
+                    </div>
+
+                    <ul class="studentList" id="studentsList">
+
+                    </ul>
+
+
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!--footer-->
+        <footer class="footer">
+            Copyright 2020 - 2021 by Freshers Training.
+        </footer>
+
+    </article>
+</body>
+
+</html>
